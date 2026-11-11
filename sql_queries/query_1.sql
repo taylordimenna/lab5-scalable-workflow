@@ -1,4 +1,4 @@
--- Query 1: For each patient and gene, count the protein-altering mutations (including silent).
+-- Query 1: For each patient and gene, count the protein-altering mutations (excluding silent).
 -- Expected grain = one row per patient per gene.
 -- Expected row count = 2830 (566 patients, 5 genes per patient)
 
