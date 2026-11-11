@@ -6,7 +6,7 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_IN = (PROJECT_ROOT / "data" / "cohort.db")
 SQL_PATH = (PROJECT_ROOT / "sql_queries")
-TABLE_OUT = (PROJECT_ROOT / "feature_table")
+TABLE_OUT = (PROJECT_ROOT / "results")
 
 # Creates the folder if it doesn't already exist
 TABLE_OUT.mkdir(parents=True, exist_ok=True)
