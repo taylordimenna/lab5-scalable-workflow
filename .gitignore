@@ -5,3 +5,5 @@ __pycache__/
 .snakemake/
 *.tmp
 .DS_Store
+.vscode
+vscode
