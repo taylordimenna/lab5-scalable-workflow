@@ -1,0 +1,32 @@
+Lab 5 Summary:
+ 
+Cleaned Samples CSV-
+Number of sample records: 60
+Unique sample IDs: 60
+Missing sex values: 5
+Asterisk-flagged glucose values: 2
+
+Enrollment site counts:
+Site A: 23
+Site B: 20
+Site C: 17
+ 
+
+Patient Feature Table-
+Number of patients: 566
+Unique patient IDs: 566
+Patients missing sex: 52
+Patients missing age: 71
+Patients missing stage: 54
+
+Patient counts by tumor stage:
+I: 5
+IA: 134
+IB: 139
+II: 1
+IIA: 52
+IIB: 71
+IIIA: 72
+IIIB: 11
+IV: 27
+Missing: 54
