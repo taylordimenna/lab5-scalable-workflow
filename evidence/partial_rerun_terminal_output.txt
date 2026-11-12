@@ -1,0 +1,97 @@
+SNAKEMAKE
+=========
+  Date: 2026-11-11 20:32:56
+  Workflow ID: ae3b9bce-cda0-4e61-8b32-aa157267a205
+  Platform: Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43
+  Host: Taylors-Laptop
+  User: taylo
+  Snakemake version: 9.24.0
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /home/taylo/miniforge3/envs/week10/bin/snakemake -R clean_samples --cores 2
+  Snakefile: /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow/Snakefile
+  Base directory: /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow
+  Run directory: /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow
+  Working directory: /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow
+  Config file(s): []
+  Config MD5: 99914b932bd37a50b983c5e7c90ae93b
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+clean_samples           1
+generate_summary        1
+all                     1
+total                   3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 20:32:57 2026]
+localrule clean_samples:
+    input: data/messy_samples.csv, scripts/clean_up_samples_regex.py
+    output: results/cleaned_samples.csv
+    jobid: 0
+    reason: Forced execution
+    resources: tmpdir=/tmp
+
+Cleaning summary
+Input records: 60
+Output records: 60
+Unique sample IDs: 60
+
+Missing values:
+sample_id: 0
+patient_name: 0
+dob: 0
+sex: 5
+enrollment_site: 0
+glucose_value: 0
+glucose_unit: 0
+glucose_flag: 58
+notes: 56
+
+Enrollment site counts:
+Site A: 23
+Site B: 20
+Site C: 17
+
+Asterisk-flagged glucose values: 2
+
+Output file: /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow/results/cleaned_samples.csv
+Cleaning completed successfully!
+[Wed Nov 11 20:32:57 2026]
+Finished jobid: 0 (Rule: clean_samples)
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 20:32:57 2026]
+localrule generate_summary:
+    input: results/cleaned_samples.csv, results/patient_feature_table.tsv, reports/generate_summary.py
+    output: reports/summary.txt, reports/summary_figure.png
+    jobid: 2
+    reason: Input files updated by another job: results/cleaned_samples.csv
+    resources: tmpdir=/tmp
+Summary report created successfully.
+Text report: /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow/reports/summary.txt
+Figure: /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow/reports/summary_figure.png
+[Wed Nov 11 20:33:00 2026]
+Finished jobid: 2 (Rule: generate_summary)
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 20:33:00 2026]
+localrule all:
+    input: reports/summary.txt, reports/summary_figure.png
+    jobid: 1
+    reason: Input files updated by another job: reports/summary.txt, reports/summary_figure.png
+    resources: tmpdir=/tmp
+[Wed Nov 11 20:33:00 2026]
+Finished jobid: 1 (Rule: all)
+3 of 3 steps (100%) done
+Complete log(s): /mnt/c/Users/taylo/OneDrive/Desktop/Github/Test/lab5-scalable-workflow/.snakemake/log/2026-11-11T203256.770287.snakemake.log
