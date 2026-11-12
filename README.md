@@ -79,6 +79,37 @@ To check that only some of the files were created, run:
     snakemake -n
 
 ## Repository Contents
+The ```data``` folder contains:
+- ```cohort.bd``` is the original SQLite database containing the 566 patient records used to build the feature table.
+- ```messy_samples.csv``` is the original unstructured sample dataset used for the regex-based cleaning.
+
+The ```evidence``` folder contains:
+- ```full_run_terminal_output.txt``` is the saved terminal output from the clean full run, demonstrating that all three stages were completed.
+- ```partial_rerun_terminal_output.txt``` is the saved terminal output from the partial rerun, demonstrating that only the cleaning and summary stages were completed.
+
+The ```feature_table``` folder contains:
+- ```build_feature_table.py``` is the Python script used to query the SQLite database and build ```patient_feature_table.tsv```.
+
+The ```reports``` folder contains:
+- ```generate_summary.py``` is the Python script used to generate ```summary_figure.png``` and ```summary.txt``` from ```cleaned_samples.csv``` and ```patient_feature_table.tsv```.
+- ```summary_figure.png``` is the figure displaying the enrollment site and tumor stage counts.
+- ```summary.txt``` is the report summarizing ```cleaned_samples.csv``` and ```patient_feature_table.tsv```.
+
+The ```results``` folder contains:
+- ```cleaned_samples.csv``` is the output CSV file for ```clean_up_samples_regex.py``` which contains the structured CSV file data.
+- ```patient_feature_table.tsv``` is the final table containing the 566 patient records.
+
+The ```scripts``` folder contains:
+- ```clean_up_samples_regex.py``` is the Python script that codes for the creation of ```cleaned_samples.csv``` with regex-based cleaning.
+
+The ```sql_queries``` folder contains the SQL queries and script for running them.
+- ```query_1.sql``` counts the protein-altering mutations for each patient and gene.
+- ```query_3.sql``` gets patient level clinical and sample features. 
+
+```Snakefile``` contains the snakemake workflow.
+
+```.gitattributes``` contains the formatting and line endings for the text files.
+
 ```.gitignore``` contains the files that should not be committed to the repository.
 
 ```AI_USAGE.md``` contains information about any AI tools used to help complete this lab.
